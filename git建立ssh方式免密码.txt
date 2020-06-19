@@ -1,0 +1,36 @@
+找一个文件夹，cd 进入该目录
+git init
+git config --global user.name '登陆git库代码的用户名'
+
+git config --global user.email 'git服务器用户名对应的email地址'
+git config --global credential.helper store
+之一在用户的工作名录下生成配置文件.gitconfig,其内容为：
+[user]
+	email = shanelinlin@163.com
+	name = shanelinlin
+[credential]
+	helper = store
+执行命令生成密钥对
+ssh-keygen -t rsa 
+在用户工作目录下生成.ssh文件夹，有两个文件，一个是私钥，一个是公钥
+公钥：
+id_rsa_pub
+私钥：
+id_rsa
+打开公钥文件id_rsa_pub，把它的内容设置到git服务器上，这里以github为例。
+settings-->SSH and GPG keys-->New SSH key按钮弹出新增ssh钥匙的表单
+title 随便填，写一些描述你的钥匙的标题
+key： 把刚才生成的id_rsa_pub文件中的密钥内容粘贴到这里
+点 ADD SSH key按钮保存服务端密钥。
+这样你在git客户端pull，push内容到服务器时，就不需要密码了。客户端和服务器是利用密钥对进行匹配的，客户端用私钥，服务器用公钥。
+克隆你的项目，
+在需要克隆项目的对方打开git bash
+用ssh（git）的方式克隆（注意，https方式克隆的项目，是无法使用ssh密钥进行免钥匙连接登陆的）
+git方式克隆是以git为协议：
+git clone  git@github.com:shanelinlin/golearn.git
+
+对应的https方式的库地址是这样表示：
+https://github.com/shanelinlin/golearn.git
+
+
+
