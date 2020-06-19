@@ -2,4 +2,5 @@
 删除
 sync.waitgroup
 mutex
-
+排他锁
+读写锁
