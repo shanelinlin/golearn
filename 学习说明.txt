@@ -6,3 +6,4 @@ mutex
 读写锁
 goroutine
 channel
+空接口
