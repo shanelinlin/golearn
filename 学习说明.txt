@@ -7,3 +7,4 @@ mutex
 goroutine
 channel
 空接口
+空结构类型
